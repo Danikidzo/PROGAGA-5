@@ -18,10 +18,14 @@ public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
     private HumanBeing() {
         //private constructor
     }
-
+    public String getName() {return name;}
     @Override
     public int compareTo(HumanBeing o) {
-        return 0;
+        if (o.getImpactSpeed() - this.getImpactSpeed() != 0) {
+            return (int) (this.getImpactSpeed() - o.getImpactSpeed());
+        } else {
+            return this.getName().length() - o.getName().length();
+        }
     }
 
     public long getId() {return id;}
@@ -29,7 +33,6 @@ public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
         this.id = id;
     }
 
-    public String getName() {return name;}
 
     public Coordinates getCoordinates() {return coordinates;}
 

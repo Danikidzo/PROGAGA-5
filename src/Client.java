@@ -3,7 +3,7 @@ import com.google.gson.JsonSyntaxException;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
-public final class Main {
+public final class Client {
     public static void main(String[] args) {
         final OutputManager outputManager = new OutputManager();
 

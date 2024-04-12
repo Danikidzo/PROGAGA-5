@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Stack;
-import java.util.function.Predicate;
 
 /**
  * This class is used for all the user input: keyboard and script execution
@@ -144,11 +143,9 @@ public class UserInputManager implements AutoCloseable {
         while (shouldContinue) {
             outputManager.println("enter" + message + ":");
             name = nextLine().trim();
-            if (name.length() == 0) {
-                if ("".equals(name)) {
+            if (name.isEmpty()) {
                     System.out.println(messString);
                     shouldContinue = true;
-                }
             } else {
                 shouldContinue = false;
             }
