@@ -2,9 +2,9 @@ package data;
 
 import java.io.Serializable;
 
-public class Coordinates implements Serializable {
-    private float x;
-    private Long y; //Поле не может быть null
+public final class Coordinates implements Serializable {
+    private long x;
+    private Float y; //Поле не может быть null
 
     private Coordinates() {
         //private construction
@@ -25,11 +25,11 @@ public class Coordinates implements Serializable {
         private CoordinatesBuilder() {
             //private construction
         }
-        public CoordinatesBuilder setX(float x) {
+        public CoordinatesBuilder setX(long x) {
             Coordinates.this.x = x;
             return this;
         }
-        public CoordinatesBuilder setY(Long y) {
+        public CoordinatesBuilder setY(Float y) {
             Coordinates.this.y = y;
             return this;
         }

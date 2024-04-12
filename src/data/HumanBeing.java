@@ -1,16 +1,16 @@
 package data;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-public class HumanBeing implements Comparable<HumanBeing>, Serializable {
+public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private boolean realHero;
     private Boolean hasToothpick; //Поле может быть null
-    private double impactSpeed;
+    private float impactSpeed;
     private WeaponType weaponType; //Поле может быть null
     private Mood mood; //Поле может быть null
     private Car car; //Поле не может быть null
@@ -25,18 +25,21 @@ public class HumanBeing implements Comparable<HumanBeing>, Serializable {
     }
 
     public long getId() {return id;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {return name;}
 
     public Coordinates getCoordinates() {return coordinates;}
 
-    public Date getCreationDate() {return creationDate;}
+    public LocalDateTime getCreationDate() {return creationDate;}
 
     public boolean isRealHero() {return realHero;}
 
     public Boolean getHasToothpick() {return hasToothpick;}
 
-    public double getImpactSpeed() {return impactSpeed;}
+    public float getImpactSpeed() {return impactSpeed;}
 
     public WeaponType getWeaponType() {return weaponType;}
 
@@ -77,7 +80,7 @@ public class HumanBeing implements Comparable<HumanBeing>, Serializable {
             HumanBeing.this.coordinates = coordinates;
             return this;
         }
-        public HumanBeingBuilder creationDate(Date CreationDate) {
+        public HumanBeingBuilder creationDate(LocalDateTime CreationDate) {
             HumanBeing.this.creationDate = CreationDate;
             return this;
         }
@@ -89,7 +92,7 @@ public class HumanBeing implements Comparable<HumanBeing>, Serializable {
             HumanBeing.this.hasToothpick = hasToothpick;
             return this;
         }
-        public HumanBeingBuilder setImpactSpeed(double impactSpeed) {
+        public HumanBeingBuilder setImpactSpeed(float impactSpeed) {
             HumanBeing.this.impactSpeed = impactSpeed;
             return this;
         }

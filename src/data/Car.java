@@ -1,6 +1,6 @@
 package data;
 
-public class Car {
+public final class Car {
     private boolean cool;
 
     private Car() {
