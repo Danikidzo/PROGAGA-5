@@ -20,10 +20,9 @@ public class CommandManager {
         commands.add(new HistoryCommand(historyManager));
         commands.add(new ExecuteScriptCommand(userInputManager));
         commands.add(new RemoveByIdCommand(collectionManager));
-       //      commands.add(new AverageOfImpactSpeedCommand(collectionManager));
-        //commands.add(new RemoveGreaterCommand(collectionManager));
- //       commands.add(new RemoveLowerCommand(collectionManager));
- //       commands.add(new PrintFieldAscendingImpactSpeedCommand(collectionManager));
+        commands.add(new FilterByWeaponTypeCommand(collectionManager));
+       commands.add(new AddIfMinCommand(collectionManager, userInputManager, outputManager));
+       commands.add(new AddIfMaxCommand(collectionManager, userInputManager, outputManager));
     }
 
     public HashSet<Command> getCommands() {

@@ -1,8 +1,11 @@
 package utility;
 
 import data.*;
+import exceptions.NotMaxException;
+import exceptions.NotMinException;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CollectionManager {
     private final HashSet<Long> hashSetId = new HashSet<>();
@@ -13,9 +16,11 @@ public class CollectionManager {
     public void initialiseData(TreeSet<HumanBeing> treeSet) {
         this.humanBeingCollection = treeSet;
         for (HumanBeing humanBeing : humanBeingCollection) {
+            humanBeing.setId(getNewID());
             hashSetId.add(humanBeing.getId());
         }
     }
+
     public int size() {
         return humanBeingCollection.size();
     }
@@ -34,10 +39,6 @@ public class CollectionManager {
         return this.humanBeingCollection.stream().filter(e -> e.getImpactSpeed() < impactSpeed).count();
     }
 
-  //  public double averageImpactSpeed(double impactSpeed) {
-  //      return  this.humanBeingCollection.stream().
-  //  }
-
     public void removeId(Long id) {
         hashSetId.remove(id);
     }
@@ -55,7 +56,6 @@ public class CollectionManager {
     }
 
     public Long getNewID() {
-        idIter = 1L;
         while (hashSetId.contains(idIter)) {
             idIter++;
         }
@@ -74,7 +74,7 @@ public class CollectionManager {
     }
 
     public void add(HumanBeing humanBeing) {
-        humanBeing.setId(getNewID());
+       // humanBeing.setId(getNewID());
         hashSetId.add(humanBeing.getId());
         humanBeingCollection.add(humanBeing);
     }
@@ -92,6 +92,27 @@ public class CollectionManager {
         return sb.toString();
     }
 
+    public Set<HumanBeing> filterByWeaponType(WeaponType inpEnum) {
+        return this.humanBeingCollection.stream().filter(e -> e.getWeaponType().equals(inpEnum)).collect(Collectors.toSet());
+    }
+
+    public void addMax(HumanBeing humanBeing) throws NotMaxException {
+        long countGreaterThan = humanBeingCollection.stream().filter(x -> humanBeing.compareTo(x) <= 0).count();
+        if (countGreaterThan > 0) {
+            System.out.println();
+            throw new NotMaxException();
+        }
+        add(humanBeing);
+    }
+
+    public void addMin(HumanBeing humanBeing) throws NotMinException {
+        long countLessThan = humanBeingCollection.stream().filter(x -> humanBeing.compareTo(x) >= 0).count();
+        if (countLessThan > 0) {
+            System.out.println();
+            throw new NotMinException();
+        }
+        add(humanBeing);
+    }
 
     public boolean isHaveId(Long id) {
         return humanBeingCollection.stream().anyMatch((x -> x.getId() == id));

@@ -25,12 +25,13 @@ public final class AddElem {
         humanBeingBuilder.setCoordinates(coordinatesBuilder.build());
         humanBeingBuilder.setImpactSpeed(userInputManager.readFloatValue(" impactSpeed(HumanBeing, dataFormat: float)", outputManager, "Check dataFormat, please"));
         humanBeingBuilder.setRealHero(userInputManager.readBooleanValue(" realHero(HumanBeing, dataFormat: boolean)", outputManager, "Check dataFormat, please"));
+        humanBeingBuilder.setHasToothpick(userInputManager.readBooleanValue(" hasToothpick(HumanBeing, dataFormat: boolean)", outputManager, "Check dataFormat, please"));
         humanBeingBuilder.setWeaponType(userInputManager.readWeaponType(" HAMMER or RIFLE or PISTOL(dataFormat: WeaponType)", outputManager, "Check dataFormat, please"));
         humanBeingBuilder.setMood(userInputManager.readMood(" GLOOM or APATHY or FRENZY (dataFormat: Mood)", outputManager, "Check dataFormat, please"));
         if (newId) {
-            humanBeingBuilder.id(collectionManager.getNewID());
+            humanBeingBuilder.setId(collectionManager.getNewID());
         } else {
-            humanBeingBuilder.id(1L);
+            humanBeingBuilder.setId(1L);
         }
         humanBeingBuilder.creationDate(LocalDateTime.now());
         return humanBeingBuilder.build();

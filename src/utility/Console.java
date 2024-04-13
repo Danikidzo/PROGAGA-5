@@ -30,7 +30,7 @@ public class Console {
 
         TreeSet<HumanBeing> humanBeings = JsonParser.toData(stringData);
 
-        collectionManager.initialiseData(humanBeings == null ? new TreeSet<HumanBeing>() : humanBeings);
+        collectionManager.initialiseData(humanBeings == null ? new TreeSet<>() : humanBeings);
 
         startCommandCycle();
     }

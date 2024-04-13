@@ -2,6 +2,7 @@ package data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
@@ -26,6 +27,19 @@ public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
         } else {
             return this.getName().length() - o.getName().length();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HumanBeing that = (HumanBeing) o;
+        return realHero == that.realHero && Float.compare(impactSpeed, that.impactSpeed) == 0 && Objects.equals(name, that.name) && Objects.equals(coordinates, that.coordinates) && Objects.equals(hasToothpick, that.hasToothpick) && weaponType == that.weaponType && mood == that.mood && Objects.equals(car, that.car);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, coordinates, realHero, hasToothpick, impactSpeed, weaponType, mood, car);
     }
 
     public long getId() {return id;}
@@ -71,7 +85,7 @@ public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
     }
 
     public final class HumanBeingBuilder {
-        public HumanBeingBuilder id(Long sameId) {
+        public HumanBeingBuilder setId(Long sameId) {
             HumanBeing.this.id = sameId;
             return this;
         }
