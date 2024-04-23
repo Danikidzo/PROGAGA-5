@@ -12,10 +12,10 @@ public final class Client {
             return;
         }
 
-        if (!args[0].endsWith(".json")) {
-            outputManager.println("This program can only work with .json file.");
-            return;
-        }
+   //     if (!args[0].endsWith(".json")) {
+    //        outputManager.println("This program can only work with .json file.");
+   //         return;
+   //     }
 
         try (UserInputManager userInputManager = new UserInputManager()) {
 

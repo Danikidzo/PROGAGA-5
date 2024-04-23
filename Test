@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Skorb",
+    "coordinates": {
+      "x": 12,
+      "y": 13.6
+    },
+    "realHero": true,
+    "hasToothpick": false,
+    "impactSpeed": 3.9,
+    "weaponType": "PISTOL",
+    "mood": "FRENZY",
+    "car": {
+      "cool": true
+    }
+  },
+  {
+
+    "name": "Ulasevich",
+    "coordinates": {
+      "x": 123,
+      "y": 132.0
+    },
+    "creationDate": "2024-04-12T17:15:49.788330300",
+    "realHero": true,
+    "hasToothpick": true,
+    "impactSpeed": 132.0,
+    "weaponType": "HAMMER",
+    "mood": "GLOOM",
+    "car": {
+      "cool": true
+    }
+  },
+  {
+
+    "name": "Martin",
+    "coordinates": {
+      "x": 123,
+      "y": 15.6
+    },
+    "realHero": true,
+    "hasToothpick": false,
+    "impactSpeed": 9999.9,
+    "weaponType": "HAMMER",
+    "mood": "FRENZY",
+    "car": {
+      "cool": false
+    }
+  }
+]

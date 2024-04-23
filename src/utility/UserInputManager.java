@@ -32,15 +32,12 @@ public class UserInputManager implements AutoCloseable {
 
 
             } catch (IOException e) {
-                // never throws exception
                 e.printStackTrace();
             }
 
         } else {
             return scanner.nextLine();
         }
-
-        // never returns ""
         return "";
     }
 
@@ -48,25 +45,24 @@ public class UserInputManager implements AutoCloseable {
         boolean shouldContinue = true;
         Float floatResult = null;
         while (shouldContinue) {
-            outputManager.println(messString + "\n" + "enter" + message + ":");
+            outputManager.println("enter" + message + ":");
             try {
                 String line = nextLine();
                 if (!("".equals(line))) {
                     floatResult = Float.parseFloat(line);
                     shouldContinue=false;
                 } else {
-                    System.out.println(messString);
+                    outputManager.println(messString);
                     shouldContinue=true;
                 }
             } catch (NumberFormatException | NullPointerException e) {
+                outputManager.println(messString);
                 shouldContinue = true;
             }
 
         }
         return floatResult;
     }
-
-
 
     public WeaponType readWeaponType(String message, OutputManager outputManager, String messString) {
         boolean shouldContinue = true;
@@ -106,13 +102,14 @@ public class UserInputManager implements AutoCloseable {
         boolean shouldContinue = true;
         Long longResult = null;
         while (shouldContinue) {
-            outputManager.println(messString + "\n" + "enter" + message + ":");
+            outputManager.println("\n" + "enter" + message + ":");
             try {
                 String line = nextLine();
                 longResult = "".equals(line) ? null : Long.parseLong(line);
                 shouldContinue=false;
             } catch (NumberFormatException | NullPointerException e) {
-                shouldContinue = true; // codestyle`
+                outputManager.println(messString);
+                shouldContinue = true;
             }
 
         }

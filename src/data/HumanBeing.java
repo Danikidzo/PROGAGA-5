@@ -22,8 +22,8 @@ public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
     public String getName() {return name;}
     @Override
     public int compareTo(HumanBeing o) {
-        if (o.getImpactSpeed() - this.getImpactSpeed() != 0) {
-            return (int) (this.getImpactSpeed() - o.getImpactSpeed());
+        if (o.getId() - this.getId() != 0) {
+            return (int) (this.getId() - o.getId());
         } else {
             return this.getName().length() - o.getName().length();
         }
