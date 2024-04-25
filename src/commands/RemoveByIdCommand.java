@@ -21,6 +21,6 @@ public class RemoveByIdCommand extends Command {
         if (collectionManager.removeByID(id)) {
             return new CommandResult(false, "remove success");
         }
-        return new CommandResult(false, "not SpaceMarine with id");
+        return new CommandResult(false, "not HumanBeing with id");
     }
 }

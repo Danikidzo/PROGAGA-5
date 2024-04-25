@@ -9,9 +9,6 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.Stack;
 
-/**
- * This class is used for all the user input: keyboard and script execution
- */
 public class UserInputManager implements AutoCloseable {
     private final Scanner scanner = new Scanner(System.in);
     private final Stack<BufferedReader> currentFilesReaders = new Stack<>();
@@ -102,7 +99,7 @@ public class UserInputManager implements AutoCloseable {
         boolean shouldContinue = true;
         Long longResult = null;
         while (shouldContinue) {
-            outputManager.println("\n" + "enter" + message + ":");
+            outputManager.println("enter" + message + ":");
             try {
                 String line = nextLine();
                 longResult = "".equals(line) ? null : Long.parseLong(line);

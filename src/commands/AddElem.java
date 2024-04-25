@@ -6,9 +6,6 @@ import data.*;
 import java.time.LocalDateTime;
 
 public final class AddElem {
-    private AddElem() {
-    }
-
     public static HumanBeing add(boolean newId, UserInputManager userInputManager, OutputManager outputManager, CollectionManager collectionManager) {
         Coordinates.CoordinatesBuilder coordinatesBuilder = Coordinates.newBuilder();
         coordinatesBuilder.setX(userInputManager.readLongValue(" x(coordinates)", outputManager, "Check x dataFormat, please"));

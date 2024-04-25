@@ -24,9 +24,7 @@ public class CollectionManager {
     public int size() {
         return humanBeingCollection.size();
     }
-    public boolean removeIdIfMatchArg(Long longArg) {
-        return humanBeingCollection.removeIf(x -> x.getId() == longArg);
-    }
+
     public Class<? extends TreeSet> getClassCollection() {
         return humanBeingCollection.getClass();
     }
@@ -74,7 +72,6 @@ public class CollectionManager {
     }
 
     public void add(HumanBeing humanBeing) {
-       // humanBeing.setId(getNewID());
         hashSetId.add(humanBeing.getId());
         humanBeingCollection.add(humanBeing);
     }
@@ -112,6 +109,15 @@ public class CollectionManager {
             throw new NotMinException();
         }
         add(humanBeing);
+    }
+
+    public void averageImpactSpeed(){
+        float x = 0;
+        for (HumanBeing humanBeing : humanBeingCollection) {
+           x += humanBeing.getImpactSpeed();
+        }
+        float y=x/humanBeingCollection.size();
+        System.out.println("Average Impact Speed is" + y);
     }
 
     public boolean isHaveId(Long id) {
