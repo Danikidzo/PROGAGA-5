@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import data.HumanBeing;
-
 import java.lang.reflect.Type;
-
 import java.time.LocalDateTime;
 import java.util.TreeSet;
 

@@ -12,11 +12,6 @@ public final class Client {
             return;
         }
 
-   //     if (!args[0].endsWith(".json")) {
-    //        outputManager.println("This program can only work with .json file.");
-   //         return;
-   //     }
-
         try (UserInputManager userInputManager = new UserInputManager()) {
 
             final HistoryManager historyManager = new HistoryManager();
@@ -39,7 +34,7 @@ public final class Client {
         } catch (NoSuchElementException e) {
             outputManager.println("EOF");
         } catch (Exception e) {
-            System.out.println(e.getMessage() + " "); //never throwns
+            System.out.println(e.getMessage() + " ");
             e.printStackTrace();
         }
     }

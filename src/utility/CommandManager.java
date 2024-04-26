@@ -22,6 +22,7 @@ public class CommandManager {
         commands.add(new RemoveByIdCommand(collectionManager));
         commands.add(new FilterByWeaponTypeCommand(collectionManager));
        commands.add(new AddIfMinCommand(collectionManager, userInputManager, outputManager));
+       commands.add(new AverageOfImpactSpeedCommand(collectionManager, userInputManager, outputManager));
        commands.add(new AddIfMaxCommand(collectionManager, userInputManager, outputManager));
     }
 

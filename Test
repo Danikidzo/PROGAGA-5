@@ -1,30 +1,46 @@
 [
   {
-    "name": "Skorb",
+    "name": "Artemiy",
     "coordinates": {
-      "x": 12,
-      "y": 13.6
+      "x": 1,
+      "y": 2.0
     },
+    "creationDate": "2024-04-26T15:06:48.528992800",
     "realHero": true,
-    "hasToothpick": false,
-    "impactSpeed": 3.9,
-    "weaponType": "PISTOL",
+    "hasToothpick": true,
+    "impactSpeed": 52.0,
+    "weaponType": "HAMMER",
     "mood": "FRENZY",
     "car": {
       "cool": true
     }
   },
   {
-
+    "name": "Martin",
+    "coordinates": {
+      "x": 123,
+      "y": 15.6
+    },
+    "creationDate": "2024-04-26T12:02:13.774741600",
+    "realHero": false,
+    "hasToothpick": false,
+    "impactSpeed": 7.45,
+    "weaponType": "HAMMER",
+    "mood": "FRENZY",
+    "car": {
+      "cool": false
+    }
+  },
+  {
     "name": "Ulasevich",
     "coordinates": {
       "x": 123,
       "y": 132.0
     },
-    "creationDate": "2024-04-12T17:15:49.788330300",
+    "creationDate": "2024-04-26T12:02:13.774741600",
     "realHero": true,
     "hasToothpick": true,
-    "impactSpeed": 132.0,
+    "impactSpeed": 3.9,
     "weaponType": "HAMMER",
     "mood": "GLOOM",
     "car": {
@@ -32,19 +48,19 @@
     }
   },
   {
-
-    "name": "Martin",
+    "name": "SkorbK",
     "coordinates": {
-      "x": 123,
-      "y": 15.6
+      "x": 12,
+      "y": 13.6
     },
+    "creationDate": "2024-04-26T12:02:13.774741600",
     "realHero": true,
     "hasToothpick": false,
-    "impactSpeed": 9999.9,
-    "weaponType": "HAMMER",
+    "impactSpeed": 2.33,
+    "weaponType": "PISTOL",
     "mood": "FRENZY",
     "car": {
-      "cool": false
+      "cool": true
     }
   }
 ]

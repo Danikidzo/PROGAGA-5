@@ -25,7 +25,7 @@ public class UpdateCommand extends Command {
             return new CommandResult(false, "Your argument was incorrect. The command was not executed.");
         }
         if (!collectionManager.isHaveId(id)) {
-            return new CommandResult(false, "have not this id");
+            return new CommandResult(false, "this id doesn't exist.");
         }
         HumanBeing humanBeing;
         humanBeing = AddElem.add(false, userInputManager, outputManager, collectionManager);

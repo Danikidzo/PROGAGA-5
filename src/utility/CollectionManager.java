@@ -117,7 +117,7 @@ public class CollectionManager {
            x += humanBeing.getImpactSpeed();
         }
         float y=x/humanBeingCollection.size();
-        System.out.println("Average Impact Speed is" + y);
+        System.out.println("Average Of Impact Speed is " + y);
     }
 
     public boolean isHaveId(Long id) {

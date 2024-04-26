@@ -16,17 +16,23 @@ public final class HumanBeing implements Comparable<HumanBeing>, Serializable {
     private Mood mood; //Поле может быть null
     private Car car; //Поле не может быть null
 
-    private HumanBeing() {
-        //private constructor
-    }
     public String getName() {return name;}
+
     @Override
     public int compareTo(HumanBeing o) {
-        if (o.getId() - this.getId() != 0) {
-            return (int) (this.getId() - o.getId());
-        } else {
-            return this.getName().length() - o.getName().length();
-        }
+        if (this.getImpactSpeed() - o.getImpactSpeed() != 0) {
+            if(o.getImpactSpeed()-this.getImpactSpeed()>0){
+                return 1;
+            }
+            return -1;
+        } else if (o.getName().length() - this.getName().length() != 0) {
+            return this.getName().length()-o.getName().length();
+        }else if(!(o.getName().equals(this.getName()))){
+                return 1;
+            }
+            else {
+                return 0;
+            }
     }
 
     @Override

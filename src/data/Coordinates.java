@@ -6,10 +6,6 @@ public final class Coordinates implements Serializable {
     private long x;
     private Float y; //Поле не может быть null
 
-    private Coordinates() {
-        //private construction
-    }
-
     @Override
     public String toString() {
         return "\n\tx=" + x

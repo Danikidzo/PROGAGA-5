@@ -9,7 +9,6 @@ import java.util.TreeSet;
 
 public class Console {
     private final CommandRunManager commandRunManager;
-
     private final OutputManager outputManager;
     private final CollectionManager collectionManager;
     private final FileManager fileManager;
