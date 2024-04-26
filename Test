@@ -1,21 +1,5 @@
 [
   {
-    "name": "Artemiy",
-    "coordinates": {
-      "x": 1,
-      "y": 2.0
-    },
-    "creationDate": "2024-04-26T15:06:48.528992800",
-    "realHero": true,
-    "hasToothpick": true,
-    "impactSpeed": 52.0,
-    "weaponType": "HAMMER",
-    "mood": "FRENZY",
-    "car": {
-      "cool": true
-    }
-  },
-  {
     "name": "Martin",
     "coordinates": {
       "x": 123,
