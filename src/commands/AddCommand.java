@@ -7,21 +7,19 @@ import utility.*;
 public class AddCommand extends Command {
     private final CollectionManager collectionManager;
     private final UserInputManager userInputManager;
-    private final OutputManager outputManager;
 
-    public AddCommand(CollectionManager collectionManager, UserInputManager userInputManager, OutputManager outputManager) {
+    public AddCommand(CollectionManager collectionManager, UserInputManager userInputManager) {
         super("add");
         this.collectionManager = collectionManager;
         this.userInputManager = userInputManager;
-        this.outputManager = outputManager;
     }
 
     @Override
     public CommandResult execute(String arg) {
         HumanBeing humanBeing;
-        humanBeing = AddElem.add(true, userInputManager, outputManager, collectionManager);
+        humanBeing = AddElem.add(true, userInputManager, collectionManager);
         collectionManager.add(humanBeing);
-        return new CommandResult(false, "succes added");
+        return new CommandResult(false, "Successfully added");
     }
 }
 

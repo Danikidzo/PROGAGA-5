@@ -38,22 +38,22 @@ public class UserInputManager implements AutoCloseable {
         return "";
     }
 
-    public Float readFloatValue(String message, OutputManager outputManager, String messString) {
+    public Float readFloatValue(String message, String messString) {
         boolean shouldContinue = true;
         Float floatResult = null;
         while (shouldContinue) {
-            outputManager.println("enter" + message + ":");
+            System.out.println("enter" + message + ":");
             try {
                 String line = nextLine();
                 if (!("".equals(line))) {
                     floatResult = Float.parseFloat(line);
                     shouldContinue=false;
                 } else {
-                    outputManager.println(messString);
+                    System.out.println(messString);
                     shouldContinue=true;
                 }
             } catch (NumberFormatException | NullPointerException e) {
-                outputManager.println(messString);
+                System.out.println(messString);
                 shouldContinue = true;
             }
 
@@ -61,51 +61,22 @@ public class UserInputManager implements AutoCloseable {
         return floatResult;
     }
 
-    public WeaponType readWeaponType(String message, OutputManager outputManager, String messString) {
-        boolean shouldContinue = true;
-        WeaponType weaponResult = null;
-        while (shouldContinue) {
-            outputManager.println("enter" + message + ":");
-            try {
-                String line = nextLine().toUpperCase(Locale.ROOT).trim();
-                weaponResult = "".equals(line) ? null : WeaponType.valueOf(line);
-                shouldContinue = false;
-            } catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println(messString);
-                shouldContinue = true;
-            }
-        }
-        return weaponResult;
-    }
-
-    public Boolean readBooleanValue(String message, OutputManager outputManager, String messString) {
-        boolean shouldContinue = true;
-        Boolean booleanResult = null;
-        while (shouldContinue) {
-            outputManager.println("enter" + message + ":");
-            try {
-                String line = nextLine().toUpperCase(Locale.ROOT).trim();
-                booleanResult = "".equals(line) ? null : Boolean.valueOf(line);
-                shouldContinue = false;
-            } catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println(messString);
-                shouldContinue = true;
-            }
-        }
-        return booleanResult;
-    }
-
-    public Long readLongValue(String message, OutputManager outputManager, String messString) {
+    public Long readLongValue(String message, String messString) {
         boolean shouldContinue = true;
         Long longResult = null;
         while (shouldContinue) {
-            outputManager.println("enter" + message + ":");
+            System.out.println("enter" + message + ":");
             try {
                 String line = nextLine();
-                longResult = "".equals(line) ? null : Long.parseLong(line);
-                shouldContinue=false;
+                if (!("".equals(line))) {
+                    longResult = Long.parseLong(line);
+                    shouldContinue=false;
+                } else {
+                    System.out.println(messString);
+                    shouldContinue=true;
+                }
             } catch (NumberFormatException | NullPointerException e) {
-                outputManager.println(messString);
+                System.out.println(messString);
                 shouldContinue = true;
             }
 
@@ -113,29 +84,87 @@ public class UserInputManager implements AutoCloseable {
         return longResult;
     }
 
-    public Mood readMood(String message, OutputManager outputManager, String messString) {
+    public WeaponType readWeaponType(String message, String messString) {
+        boolean shouldContinue = true;
+        WeaponType weaponResult = null;
+        while (shouldContinue) {
+            System.out.println("enter" + message + ":");
+                String line = nextLine().toUpperCase(Locale.ROOT).trim();
+            switch (line) {
+                case "RIFLE" -> {
+                    weaponResult = WeaponType.RIFLE;
+                    shouldContinue = false;
+                }
+                case "HAMMER" -> {
+                    weaponResult = WeaponType.HAMMER;
+                    shouldContinue = false;
+                }
+                case "PISTOL" -> {
+                    weaponResult = WeaponType.PISTOL;
+                    shouldContinue = false;
+                }
+                default -> {
+                    System.out.println(messString);
+                    shouldContinue = true;
+                }
+            }
+        }
+        return weaponResult;
+    }
+
+    public Boolean readBooleanValue(String message, String messString) {
+        boolean shouldContinue = true;
+        Boolean booleanResult = null;
+        while (shouldContinue) {
+            System.out.println("enter" + message + ":");
+                String line = nextLine().toUpperCase(Locale.ROOT).trim();
+               if(line.equals("FALSE")) {
+                   booleanResult = false;
+                   shouldContinue=false;
+               }
+               else if(line.equals("TRUE")){
+                   booleanResult = true;
+                   shouldContinue=false;
+               }
+               else {System.out.println(messString);
+                   shouldContinue = true;}
+        }
+        return booleanResult;
+    }
+
+    public Mood readMood(String message, String messString) {
         boolean shouldContinue = true;
         Mood moodResult = null;
         while (shouldContinue) {
-            outputManager.println("enter" + message + ":");
-            try {
+            System.out.println("enter" + message + ":");
                 String line = nextLine().toUpperCase(Locale.ROOT).trim();
-                moodResult = "".equals(line) ? null : Mood.valueOf(line);
-                shouldContinue = false;
-
-            } catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println(messString);
-                shouldContinue = true;
+            switch (line) {
+                case "APATHY" -> {
+                    moodResult = Mood.APATHY;
+                    shouldContinue = false;
+                }
+                case "GLOOM" -> {
+                    moodResult = Mood.GLOOM;
+                    shouldContinue = false;
+                }
+                case "FRENZY" -> {
+                    moodResult = Mood.FRENZY;
+                    shouldContinue = false;
+                }
+                default -> {
+                    System.out.println(messString);
+                    shouldContinue = true;
+                }
             }
         }
         return moodResult;
     }
 
-    public String readStringNameValue(String message, OutputManager outputManager, String messString) {
+    public String readStringNameValue(String message, String messString) {
         boolean shouldContinue = true;
         String name = null;
         while (shouldContinue) {
-            outputManager.println("enter" + message + ":");
+            System.out.println("enter" + message + ":");
             name = nextLine().trim();
             if (name.isEmpty()) {
                     System.out.println(messString);

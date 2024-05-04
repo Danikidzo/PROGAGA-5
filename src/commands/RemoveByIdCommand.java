@@ -19,8 +19,8 @@ public class RemoveByIdCommand extends Command {
             return new CommandResult(false, "Your argument was incorrect. The command was not executed.");
         }
         if (collectionManager.removeByID(id)) {
-            return new CommandResult(false, "remove success");
+            return new CommandResult(false, "Removed successfully");
         }
-        return new CommandResult(false, "not HumanBeing with id");
+        return new CommandResult(false, "Not HumanBeing with id");
     }
 }

@@ -1,8 +1,6 @@
 package utility;
 
 import data.*;
-import exceptions.NotMaxException;
-import exceptions.NotMinException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -93,31 +91,31 @@ public class CollectionManager {
         return this.humanBeingCollection.stream().filter(e -> e.getWeaponType().equals(inpEnum)).collect(Collectors.toSet());
     }
 
-    public void addMax(HumanBeing humanBeing) throws NotMaxException {
+    public boolean addMax(HumanBeing humanBeing){
+        boolean isMax = true;
         long countGreaterThan = humanBeingCollection.stream().filter(x -> humanBeing.compareTo(x) <= 0).count();
-        if (countGreaterThan > 0) {
-            System.out.println();
-            throw new NotMaxException();
-        }
-        add(humanBeing);
+        if (countGreaterThan > 0) {isMax=false;}
+        else{add(humanBeing);}
+        return isMax;
     }
 
-    public void addMin(HumanBeing humanBeing) throws NotMinException {
+    public boolean addMin(HumanBeing humanBeing){
+        boolean isMin;
         long countLessThan = humanBeingCollection.stream().filter(x -> humanBeing.compareTo(x) >= 0).count();
         if (countLessThan > 0) {
-            System.out.println();
-            throw new NotMinException();
+            isMin=false;
         }
-        add(humanBeing);
+        {add(humanBeing);
+            isMin = true;}
+        return isMin;
     }
 
-    public void averageImpactSpeed(){
+    public float averageImpactSpeed(){
         float x = 0;
         for (HumanBeing humanBeing : humanBeingCollection) {
            x += humanBeing.getImpactSpeed();
         }
-        float y=x/humanBeingCollection.size();
-        System.out.println("Average Of Impact Speed is " + y);
+        return x/humanBeingCollection.size();
     }
 
     public boolean isHaveId(Long id) {

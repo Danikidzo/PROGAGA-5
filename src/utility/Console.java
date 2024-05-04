@@ -9,18 +9,14 @@ import java.util.TreeSet;
 
 public class Console {
     private final CommandRunManager commandRunManager;
-    private final OutputManager outputManager;
     private final CollectionManager collectionManager;
     private final FileManager fileManager;
     private final UserInputManager userInputManager;
 
-    public Console(FileManager fileManager, UserInputManager userInputManager,
-                   CollectionManager collectionManager, OutputManager outputManager,
-                   CommandRunManager commandRunManager) {
+    public Console(FileManager fileManager, UserInputManager userInputManager, CollectionManager collectionManager, CommandRunManager commandRunManager) {
         this.fileManager = fileManager;
         this.userInputManager = userInputManager;
         this.collectionManager = collectionManager;
-        this.outputManager = outputManager;
         this.commandRunManager = commandRunManager;
     }
 
@@ -47,7 +43,7 @@ public class Console {
     }
 
     private String readNextCommand() {
-        outputManager.print(">>>");
+        System.out.print(">>>");
         return userInputManager.nextLine();
     }
 
@@ -65,7 +61,7 @@ public class Console {
                 arg = commandNameAndArg[1];
             }
             commandResult = commandRunManager.runCommand(name, arg);
-            outputManager.println(commandResult.getOutput());
+            System.out.println(commandResult.getOutput());
         } while (!Objects.requireNonNull(commandResult).isExit());
     }
 }
