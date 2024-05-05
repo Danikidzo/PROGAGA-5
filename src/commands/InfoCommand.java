@@ -1,8 +1,5 @@
 package commands;
-
-
 import utility.*;
-
 public class InfoCommand extends Command {
 
     private final CollectionManager collectionManager;

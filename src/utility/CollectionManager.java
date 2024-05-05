@@ -1,7 +1,6 @@
 package utility;
 
 import data.*;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -92,20 +91,23 @@ public class CollectionManager {
     }
 
     public boolean addMax(HumanBeing humanBeing){
-        boolean isMax = true;
-        long countGreaterThan = humanBeingCollection.stream().filter(x -> humanBeing.compareTo(x) <= 0).count();
-        if (countGreaterThan > 0) {isMax=false;}
-        else{add(humanBeing);}
+        boolean isMax;
+        int x = humanBeing.compareTo(humanBeingCollection.stream().max(Comparator.comparing(humanBeing::compareTo)).get());
+        if (x > 0) {
+            isMax=false;
+        }
+        else{add(humanBeing);
+            isMax = true;}
         return isMax;
     }
 
     public boolean addMin(HumanBeing humanBeing){
         boolean isMin;
-        long countLessThan = humanBeingCollection.stream().filter(x -> humanBeing.compareTo(x) >= 0).count();
-        if (countLessThan > 0) {
+        int x = humanBeing.compareTo(humanBeingCollection.stream().max(Comparator.comparing(humanBeing::compareTo)).get());
+        if (x < 0) {
             isMin=false;
         }
-        {add(humanBeing);
+        else{add(humanBeing);
             isMin = true;}
         return isMin;
     }

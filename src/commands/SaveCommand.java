@@ -1,7 +1,6 @@
 package commands;
 
 import utility.*;
-
 import java.io.IOException;
 
 public class SaveCommand extends Command {

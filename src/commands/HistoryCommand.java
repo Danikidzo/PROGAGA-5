@@ -1,6 +1,5 @@
 package commands;
 
-
 import utility.*;
 
 public class HistoryCommand extends Command {

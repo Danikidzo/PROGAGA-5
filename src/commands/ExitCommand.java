@@ -1,6 +1,5 @@
 package commands;
 
-
 import utility.CommandResult;
 
 public class ExitCommand extends Command {

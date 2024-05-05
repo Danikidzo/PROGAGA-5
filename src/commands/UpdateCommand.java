@@ -1,6 +1,5 @@
 package commands;
 
-
 import data.HumanBeing;
 import utility.*;
 

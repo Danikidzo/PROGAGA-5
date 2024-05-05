@@ -1,7 +1,6 @@
 package utility;
 
 import commands.*;
-
 import java.util.HashSet;
 
 public class CommandManager {
